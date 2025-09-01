@@ -80,7 +80,11 @@ html, body {
 
 /* Carousel container */
 .carousel-container {
-  padding: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: calc((100% - 375px) / -2); /* centers container if page is wider than fixed width */
+  margin-right: calc((100% - 375px) / -2);
+  width: 100vw; /* full viewport width */
   flex: 1;
   display: flex;
   flex-direction: column;
