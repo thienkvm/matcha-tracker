@@ -1,19 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap');
-
-body, html {
-  font-family: 'Syne', sans-serif;
-}
-
 /* Import Syne font */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap');
 
-/* Reset and base styles */
-* {
-  box-sizing: border-box;
+/* Reset all margins/paddings and set box-sizing */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Base styles */
 html, body {
   font-family: 'Syne', sans-serif;
   background-color: #FDFDFB;
@@ -22,21 +19,23 @@ html, body {
   font-size: 16px;
   line-height: 1.5;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
-  width: 375px; /* Fixed width matching mobile mockup */
+  width: 375px; /* mobile width */
   margin: 20px auto;
   background: #FFFFFF;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   overflow: hidden;
-  min-height: 667px; /* match typical mobile height */
+  min-height: 667px; /* typical mobile viewport height */
   display: flex;
   flex-direction: column;
 }
 
-/* Common header style */
+/* Common header container */
 .page header {
   padding: 24px 20px 12px 20px;
   background-color: #FFFFFF;
@@ -53,6 +52,7 @@ html, body {
   color: #212121;
   letter-spacing: 0.5px;
   flex: 1;
+  text-align: center;
 }
 
 /* View toggles container */
@@ -78,13 +78,13 @@ html, body {
   border-color: #7CB342;
 }
 
-/* Carousel container */
+/* Landing page carousel container */
 .carousel-container {
   padding-left: 0;
   padding-right: 0;
-  margin-left: calc((100% - 375px) / -2); /* centers container if page is wider than fixed width */
+  margin-left: calc((100% - 375px) / -2);
   margin-right: calc((100% - 375px) / -2);
-  width: 100vw; /* full viewport width */
+  width: 100vw;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -92,6 +92,7 @@ html, body {
   background: #FFFFFF;
 }
 
+/* Carousel indicators horizontal dots */
 .carousel-indicators {
   display: flex;
   justify-content: space-between;
@@ -124,7 +125,7 @@ html, body {
   color: #7CB342;
 }
 
-/* Carousel wrapper */
+/* Carousel wrapper styles */
 .carousel-wrapper {
   overflow-x: auto;
   display: flex;
@@ -151,7 +152,7 @@ html, body {
   align-items: center;
 }
 
-/* Save Entry button */
+/* Save Entry button style */
 .save-entry-btn {
   margin-top: 20px;
   width: 100%;
@@ -165,12 +166,11 @@ html, body {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-
 .save-entry-btn:hover {
   background-color: #649934;
 }
 
-/* Notes Page */
+/* Notes (entry) page container */
 #notes-page {
   padding: 20px;
   background: #FFFFFF;
@@ -188,6 +188,7 @@ html, body {
   gap: 12px;
 }
 
+/* Back button */
 .back-btn {
   font-size: 24px;
   background: none;
@@ -196,6 +197,7 @@ html, body {
   color: #7CB342;
 }
 
+/* Notes content layout */
 .notes-content {
   display: flex;
   gap: 24px;
@@ -209,7 +211,7 @@ html, body {
 
 .matcha-image-container {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   background: #F0F0F0;
   overflow: hidden;
@@ -225,6 +227,7 @@ html, body {
   object-fit: contain;
 }
 
+/* Upload image button style */
 .upload-btn {
   position: absolute;
   bottom: 12px;
@@ -245,6 +248,7 @@ html, body {
   display: none;
 }
 
+/* Notes entry form section */
 .form-section {
   width: 60%;
   display: flex;
@@ -252,7 +256,7 @@ html, body {
   gap: 16px;
 }
 
-/* Form groups */
+/* Form groups layout */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -282,7 +286,7 @@ textarea:focus {
   border-color: #7CB342;
 }
 
-/* Flavor profile buttons */
+/* Flavor profile toggle buttons */
 .flavor-tags {
   display: flex;
   gap: 12px;
@@ -308,104 +312,9 @@ textarea:focus {
   color: white;
 }
 
-/* Radar Chart Container */
-.radar-chart-container {
-  position: relative;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-#radar-chart {
-  width: 200px !important;
-  height: 200px !important;
-  border-radius: 16px;
-  background: #F9F9F9;
-  box-shadow: inset 0 0 8px #DDD;
-}
-
-/* Radar Controls sliders */
-.radar-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.control-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.control-item label {
-  font-weight: 500;
-  font-size: 14px;
-  color: #212121;
-  flex: 1;
-}
-
-.control-item input[type="range"] {
-  flex: 3;
-  cursor: pointer;
-}
-
-/* Save Changes button */
-.save-btn {
-  width: 100%;
-  padding: 14px 0;
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  background-color: #7CB342;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.save-btn:hover {
-  background-color: #649934;
-}
-
-/* Color Picker */
-.color-picker {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-#custom-color {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.suggested-colors {
-  display: flex;
-  gap: 8px;
-}
-
-.color-option {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: border-color 0.25s ease-in-out;
-}
-
-.color-option:hover,
-.color-option.selected {
-  border-color: #7CB342;
-}
-
-/* Grid View and List View Pages */
-#grid-page, #list-page {
+/* Gallery grid and List view pages */
+#grid-page,
+#list-page {
   padding: 20px;
   background: white;
   flex: 1;
@@ -414,6 +323,7 @@ textarea:focus {
   gap: 20px;
 }
 
+/* Filter toggles */
 .filter-section {
   display: flex;
   gap: 16px;
@@ -437,14 +347,17 @@ textarea:focus {
   color: white;
 }
 
-.grid-container, .list-container {
+/* Grid/List item containers */
+.grid-container,
+.list-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   overflow-y: auto;
 }
 
-.grid-container > div, .list-container > div {
+.grid-container > div,
+.list-container > div {
   background: #FAFAFA;
   border: 1px solid #DDD;
   border-radius: 16px;
@@ -452,7 +365,7 @@ textarea:focus {
   flex: 1 1 140px;
 }
 
-/* Scrollbar customization for containers */
+/* Scrollbar styling */
 .grid-container::-webkit-scrollbar,
 .list-container::-webkit-scrollbar {
   width: 8px;
@@ -464,8 +377,7 @@ textarea:focus {
   border-radius: 4px;
 }
 
-/* Icons */
+/* SVG icons fill */
 button svg {
   fill: currentColor;
 }
-
